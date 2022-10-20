@@ -8,4 +8,9 @@ func routes(_ app: Application) throws {
     app.get("hello") { req async -> String in
         "Hello, world!"
     }
+    
+    app.get("myService") { req -> String in
+        let thing = req.services.myService.doSomething()
+        return thing
+    }
 }
